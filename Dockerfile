@@ -12,3 +12,6 @@ RUN groupadd -g 22027 drgroup \
 RUN echo "druser ALL= (ALL) NOPASSWD: /var/run/mysqld,/usr/local/bin/docker-entrypoint.sh" > /etc/sudoers.d/druser
 
 USER druser
+
+ENTRYPOINT ["sudo /usr/local/bin/docker-entrypoint.sh"]
+CMD ["sudo /var/run/mysqld"]
